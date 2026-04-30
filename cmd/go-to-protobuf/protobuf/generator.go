@@ -460,7 +460,7 @@ func isFundamentalProtoType(t *types.Type) (*types.Type, bool) {
 			return &types.Type{Name: types.Name{Name: t.Name.Name}, Kind: types.Protobuf}, true
 		case "int8", "int16":
 			return &types.Type{Name: types.Name{Name: "int32"}, Kind: types.Protobuf}, true
-		case "uint8", "uint16":
+		case "uint8", "uint16", "byte":
 			return &types.Type{Name: types.Name{Name: "uint32"}, Kind: types.Protobuf}, true
 		case "int":
 			return &types.Type{Name: types.Name{Name: "int64"}, Kind: types.Protobuf}, true
