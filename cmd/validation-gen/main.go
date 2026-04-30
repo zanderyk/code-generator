@@ -28,7 +28,7 @@ import (
 
 	"github.com/spf13/pflag"
 
-	"k8s.io/code-generator/cmd/validation-gen/validators"
+	"github.com/zanderyk/code-generator/cmd/validation-gen/validators"
 	"k8s.io/gengo/v2"
 	"k8s.io/gengo/v2/generator"
 	"k8s.io/gengo/v2/namer"

@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 // +k8s:validation-gen=*
-// +k8s:validation-gen-scheme-registry=k8s.io/code-generator/cmd/validation-gen/testscheme.Scheme
+// +k8s:validation-gen-scheme-registry=github.com/zanderyk/code-generator/cmd/validation-gen/testscheme.Scheme
 // +k8s:validation-gen-test-fixture=validateFalse
 
 // Package publicprivate is a test package.
@@ -25,7 +25,7 @@ limitations under the License.
 //nolint:unused,govet,staticcheck // govet disables structtag check, which checks for use of tags on private fields; staticcheck calls out SA5008: unexported struct field cannot have non-ignored `json:"private"`
 package publicprivate
 
-import "k8s.io/code-generator/cmd/validation-gen/testscheme"
+import "github.com/zanderyk/code-generator/cmd/validation-gen/testscheme"
 
 var localSchemeBuilder = testscheme.New()
 

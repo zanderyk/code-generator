@@ -25,7 +25,7 @@ import (
 	"strconv"
 	"strings"
 
-	genutil "k8s.io/code-generator/pkg/util"
+	genutil "github.com/zanderyk/code-generator/pkg/util"
 	"k8s.io/gengo/v2"
 	"k8s.io/gengo/v2/generator"
 	"k8s.io/gengo/v2/namer"

@@ -22,7 +22,7 @@ import (
 
 	"k8s.io/apimachinery/pkg/api/validate"
 	"k8s.io/apimachinery/pkg/util/sets"
-	"k8s.io/code-generator/cmd/validation-gen/util"
+	"github.com/zanderyk/code-generator/cmd/validation-gen/util"
 	"k8s.io/gengo/v2/codetags"
 	"k8s.io/gengo/v2/types"
 )

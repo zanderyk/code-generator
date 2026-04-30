@@ -18,7 +18,7 @@ package v1
 
 import (
 	conversion "k8s.io/apimachinery/pkg/conversion"
-	example "k8s.io/code-generator/examples/apiserver/apis/example"
+	example "github.com/zanderyk/code-generator/examples/apiserver/apis/example"
 )
 
 // manually created final conversion function required because the object contains private fields that cannot be auto-converted

@@ -21,10 +21,10 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	"k8s.io/code-generator/cmd/defaulter-gen/output_tests/marker/external"
-	externalexternal "k8s.io/code-generator/cmd/defaulter-gen/output_tests/marker/external/external"
-	"k8s.io/code-generator/cmd/defaulter-gen/output_tests/marker/external2"
-	"k8s.io/code-generator/cmd/defaulter-gen/output_tests/marker/external3"
+	"github.com/zanderyk/code-generator/cmd/defaulter-gen/output_tests/marker/external"
+	externalexternal "github.com/zanderyk/code-generator/cmd/defaulter-gen/output_tests/marker/external/external"
+	"github.com/zanderyk/code-generator/cmd/defaulter-gen/output_tests/marker/external2"
+	"github.com/zanderyk/code-generator/cmd/defaulter-gen/output_tests/marker/external3"
 	"k8s.io/utils/ptr"
 )
 

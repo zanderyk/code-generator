@@ -31,7 +31,7 @@ import (
 	validate "k8s.io/apimachinery/pkg/api/validate"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	field "k8s.io/apimachinery/pkg/util/validation/field"
-	testscheme "k8s.io/code-generator/cmd/validation-gen/testscheme"
+	testscheme "github.com/zanderyk/code-generator/cmd/validation-gen/testscheme"
 )
 
 func init() { localSchemeBuilder.Register(RegisterValidations) }

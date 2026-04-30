@@ -25,9 +25,9 @@ import (
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"
 	gentype "k8s.io/client-go/gentype"
-	apiv1 "k8s.io/code-generator/examples/single/api/v1"
-	applyconfigurationapiv1 "k8s.io/code-generator/examples/single/applyconfiguration/api/v1"
-	scheme "k8s.io/code-generator/examples/single/clientset/versioned/scheme"
+	apiv1 "github.com/zanderyk/code-generator/examples/single/api/v1"
+	applyconfigurationapiv1 "github.com/zanderyk/code-generator/examples/single/applyconfiguration/api/v1"
+	scheme "github.com/zanderyk/code-generator/examples/single/clientset/versioned/scheme"
 )
 
 // TestTypesGetter has a method to return a TestTypeInterface.

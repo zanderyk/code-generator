@@ -25,9 +25,9 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	gentype "k8s.io/client-go/gentype"
 	testing "k8s.io/client-go/testing"
-	v1 "k8s.io/code-generator/examples/MixedCase/apis/example/v1"
-	examplev1 "k8s.io/code-generator/examples/MixedCase/applyconfiguration/example/v1"
-	typedexamplev1 "k8s.io/code-generator/examples/MixedCase/clientset/versioned/typed/example/v1"
+	v1 "github.com/zanderyk/code-generator/examples/MixedCase/apis/example/v1"
+	examplev1 "github.com/zanderyk/code-generator/examples/MixedCase/applyconfiguration/example/v1"
+	typedexamplev1 "github.com/zanderyk/code-generator/examples/MixedCase/clientset/versioned/typed/example/v1"
 )
 
 // fakeClusterTestTypes implements ClusterTestTypeInterface

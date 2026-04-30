@@ -20,8 +20,8 @@ import (
 	"flag"
 
 	"github.com/spf13/pflag"
-	"k8s.io/code-generator/cmd/register-gen/args"
-	"k8s.io/code-generator/cmd/register-gen/generators"
+	"github.com/zanderyk/code-generator/cmd/register-gen/args"
+	"github.com/zanderyk/code-generator/cmd/register-gen/generators"
 	"k8s.io/gengo/v2"
 	"k8s.io/gengo/v2/generator"
 	"k8s.io/klog/v2"

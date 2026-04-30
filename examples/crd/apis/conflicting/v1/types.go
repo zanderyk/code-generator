@@ -18,7 +18,7 @@ package v1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	gwv1alpha2 "k8s.io/code-generator/examples/crd/apis/gateway-api/v1alpha2"
+	gwv1alpha2 "github.com/zanderyk/code-generator/examples/crd/apis/gateway-api/v1alpha2"
 )
 
 // +genclient

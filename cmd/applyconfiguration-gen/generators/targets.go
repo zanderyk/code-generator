@@ -29,10 +29,10 @@ import (
 	"k8s.io/gengo/v2/types"
 	"k8s.io/klog/v2"
 
-	"k8s.io/code-generator/cmd/applyconfiguration-gen/args"
-	"k8s.io/code-generator/cmd/client-gen/generators/util"
-	clientgentypes "k8s.io/code-generator/cmd/client-gen/types"
-	genutil "k8s.io/code-generator/pkg/util"
+	"github.com/zanderyk/code-generator/cmd/applyconfiguration-gen/args"
+	"github.com/zanderyk/code-generator/cmd/client-gen/generators/util"
+	clientgentypes "github.com/zanderyk/code-generator/cmd/client-gen/types"
+	genutil "github.com/zanderyk/code-generator/pkg/util"
 )
 
 const (

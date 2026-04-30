@@ -18,10 +18,10 @@ limitations under the License.
 
 // Ignore this file to prevent zz_generated for this package
 
-//go:generate go run k8s.io/code-generator/cmd/defaulter-gen --output-file zz_generated.defaults.go --go-header-file=../../../examples/hack/boilerplate.go.txt k8s.io/code-generator/cmd/defaulter-gen/output_tests/...
+//go:generate go run github.com/zanderyk/code-generator/cmd/defaulter-gen --output-file zz_generated.defaults.go --go-header-file=../../../examples/hack/boilerplate.go.txt github.com/zanderyk/code-generator/cmd/defaulter-gen/output_tests/...
 package outputtests
 
 import (
 	// For go-generate
-	_ "k8s.io/code-generator/cmd/defaulter-gen/generators"
+	_ "github.com/zanderyk/code-generator/cmd/defaulter-gen/generators"
 )

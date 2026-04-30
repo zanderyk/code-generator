@@ -22,8 +22,8 @@ import (
 	http "net/http"
 
 	rest "k8s.io/client-go/rest"
-	corev1 "k8s.io/code-generator/examples/apiserver/apis/core/v1"
-	scheme "k8s.io/code-generator/examples/apiserver/clientset/versioned/scheme"
+	corev1 "github.com/zanderyk/code-generator/examples/apiserver/apis/core/v1"
+	scheme "github.com/zanderyk/code-generator/examples/apiserver/clientset/versioned/scheme"
 )
 
 type CoreV1Interface interface {

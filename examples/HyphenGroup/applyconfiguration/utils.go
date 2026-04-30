@@ -22,9 +22,9 @@ import (
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	managedfields "k8s.io/apimachinery/pkg/util/managedfields"
-	v1 "k8s.io/code-generator/examples/HyphenGroup/apis/example/v1"
-	examplev1 "k8s.io/code-generator/examples/HyphenGroup/applyconfiguration/example/v1"
-	internal "k8s.io/code-generator/examples/HyphenGroup/applyconfiguration/internal"
+	v1 "github.com/zanderyk/code-generator/examples/HyphenGroup/apis/example/v1"
+	examplev1 "github.com/zanderyk/code-generator/examples/HyphenGroup/applyconfiguration/example/v1"
+	internal "github.com/zanderyk/code-generator/examples/HyphenGroup/applyconfiguration/internal"
 )
 
 // ForKind returns an apply configuration type for the given GroupVersionKind, or nil if no

@@ -17,7 +17,7 @@ limitations under the License.
 package wholepkg
 
 import (
-	"k8s.io/code-generator/cmd/defaulter-gen/output_tests/empty"
+	"github.com/zanderyk/code-generator/cmd/defaulter-gen/output_tests/empty"
 )
 
 // Only primitives

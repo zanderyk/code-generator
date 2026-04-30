@@ -20,9 +20,9 @@ package fake
 
 import (
 	gentype "k8s.io/client-go/gentype"
-	v1 "k8s.io/code-generator/examples/crd/apis/conflicting/v1"
-	conflictingv1 "k8s.io/code-generator/examples/crd/applyconfiguration/conflicting/v1"
-	typedconflictingv1 "k8s.io/code-generator/examples/crd/clientset/versioned/typed/conflicting/v1"
+	v1 "github.com/zanderyk/code-generator/examples/crd/apis/conflicting/v1"
+	conflictingv1 "github.com/zanderyk/code-generator/examples/crd/applyconfiguration/conflicting/v1"
+	typedconflictingv1 "github.com/zanderyk/code-generator/examples/crd/clientset/versioned/typed/conflicting/v1"
 )
 
 // fakeTestTypes implements TestTypeInterface

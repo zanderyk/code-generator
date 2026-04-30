@@ -16,5 +16,5 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-//go:generate go run k8s.io/code-generator/cmd/register-gen --output-file zz_generated.register.go --go-header-file=../../../examples/hack/boilerplate.go.txt k8s.io/code-generator/cmd/register-gen/output_tests/...
+//go:generate go run github.com/zanderyk/code-generator/cmd/register-gen --output-file zz_generated.register.go --go-header-file=../../../examples/hack/boilerplate.go.txt github.com/zanderyk/code-generator/cmd/register-gen/output_tests/...
 package outputtests

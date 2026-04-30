@@ -22,8 +22,8 @@ import (
 	http "net/http"
 
 	rest "k8s.io/client-go/rest"
-	examplev1 "k8s.io/code-generator/examples/MixedCase/apis/example/v1"
-	scheme "k8s.io/code-generator/examples/MixedCase/clientset/versioned/scheme"
+	examplev1 "github.com/zanderyk/code-generator/examples/MixedCase/apis/example/v1"
+	scheme "github.com/zanderyk/code-generator/examples/MixedCase/clientset/versioned/scheme"
 )
 
 type ExampleV1Interface interface {

@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 // +k8s:validation-gen=TypeMeta
-// +k8s:validation-gen-scheme-registry=k8s.io/code-generator/cmd/validation-gen/testscheme.Scheme
+// +k8s:validation-gen-scheme-registry=github.com/zanderyk/code-generator/cmd/validation-gen/testscheme.Scheme
 // +k8s:validation-gen-test-fixture=validateFalse
 
 // This is a test package.
@@ -23,8 +23,8 @@ limitations under the License.
 package typeargs
 
 import (
-	"k8s.io/code-generator/cmd/validation-gen/output_tests/primitives"
-	"k8s.io/code-generator/cmd/validation-gen/testscheme"
+	"github.com/zanderyk/code-generator/cmd/validation-gen/output_tests/primitives"
+	"github.com/zanderyk/code-generator/cmd/validation-gen/testscheme"
 )
 
 var localSchemeBuilder = testscheme.New()
@@ -35,14 +35,14 @@ var localSchemeBuilder = testscheme.New()
 type T1 struct {
 	TypeMeta int
 
-	// +k8s:validateFalse(typeArg: "k8s.io/code-generator/cmd/validation-gen/output_tests/primitives.T1")="T1.S1"
+	// +k8s:validateFalse(typeArg: "github.com/zanderyk/code-generator/cmd/validation-gen/output_tests/primitives.T1")="T1.S1"
 	S1 *primitives.T1 `json:"s1"`
-	// +k8s:validateFalse(typeArg: "k8s.io/code-generator/cmd/validation-gen/output_tests/primitives.T1")="PT1.PS1"
+	// +k8s:validateFalse(typeArg: "github.com/zanderyk/code-generator/cmd/validation-gen/output_tests/primitives.T1")="PT1.PS1"
 	PS1 *primitives.T1 `json:"ps1"`
 
-	// +k8s:validateFalse(typeArg: "k8s.io/code-generator/cmd/validation-gen/output_tests/type_args.E1")="T1.E1"
+	// +k8s:validateFalse(typeArg: "github.com/zanderyk/code-generator/cmd/validation-gen/output_tests/type_args.E1")="T1.E1"
 	E1 E1 `json:"e1"`
-	// +k8s:validateTrue(typeArg: "k8s.io/code-generator/cmd/validation-gen/output_tests/type_args.E1")="T1.PE1"
+	// +k8s:validateTrue(typeArg: "github.com/zanderyk/code-generator/cmd/validation-gen/output_tests/type_args.E1")="T1.PE1"
 	PE1 *E1 `json:"pe1"`
 
 	// +k8s:validateFalse(typeArg: "int")="T1.I1"

@@ -29,8 +29,8 @@ import (
 	safe "k8s.io/apimachinery/pkg/api/safe"
 	validate "k8s.io/apimachinery/pkg/api/validate"
 	field "k8s.io/apimachinery/pkg/util/validation/field"
-	primitives "k8s.io/code-generator/cmd/validation-gen/output_tests/primitives"
-	testscheme "k8s.io/code-generator/cmd/validation-gen/testscheme"
+	primitives "github.com/zanderyk/code-generator/cmd/validation-gen/output_tests/primitives"
+	testscheme "github.com/zanderyk/code-generator/cmd/validation-gen/testscheme"
 )
 
 func init() { localSchemeBuilder.Register(RegisterValidations) }

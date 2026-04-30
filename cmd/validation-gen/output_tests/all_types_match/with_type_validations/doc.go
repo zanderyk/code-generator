@@ -16,14 +16,14 @@ limitations under the License.
 
 // Note: this selects all types in the package.
 // +k8s:validation-gen=*
-// +k8s:validation-gen-scheme-registry=k8s.io/code-generator/cmd/validation-gen/testscheme.Scheme
+// +k8s:validation-gen-scheme-registry=github.com/zanderyk/code-generator/cmd/validation-gen/testscheme.Scheme
 // +k8s:validation-gen-test-fixture=validateFalse
 
 // This is a test package.
 // +k8s:validation-gen-nolint
 package withtypevalidations
 
-import "k8s.io/code-generator/cmd/validation-gen/testscheme"
+import "github.com/zanderyk/code-generator/cmd/validation-gen/testscheme"
 
 var localSchemeBuilder = testscheme.New()
 

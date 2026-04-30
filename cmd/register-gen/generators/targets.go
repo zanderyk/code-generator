@@ -24,9 +24,9 @@ import (
 
 	"k8s.io/klog/v2"
 
-	clientgentypes "k8s.io/code-generator/cmd/client-gen/types"
-	"k8s.io/code-generator/cmd/register-gen/args"
-	genutil "k8s.io/code-generator/pkg/util"
+	clientgentypes "github.com/zanderyk/code-generator/cmd/client-gen/types"
+	"github.com/zanderyk/code-generator/cmd/register-gen/args"
+	genutil "github.com/zanderyk/code-generator/pkg/util"
 	"k8s.io/gengo/v2"
 	"k8s.io/gengo/v2/generator"
 	"k8s.io/gengo/v2/namer"

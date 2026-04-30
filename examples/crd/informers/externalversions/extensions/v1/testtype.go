@@ -27,10 +27,10 @@ import (
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	watch "k8s.io/apimachinery/pkg/watch"
 	cache "k8s.io/client-go/tools/cache"
-	apisextensionsv1 "k8s.io/code-generator/examples/crd/apis/extensions/v1"
-	versioned "k8s.io/code-generator/examples/crd/clientset/versioned"
-	internalinterfaces "k8s.io/code-generator/examples/crd/informers/externalversions/internalinterfaces"
-	extensionsv1 "k8s.io/code-generator/examples/crd/listers/extensions/v1"
+	apisextensionsv1 "github.com/zanderyk/code-generator/examples/crd/apis/extensions/v1"
+	versioned "github.com/zanderyk/code-generator/examples/crd/clientset/versioned"
+	internalinterfaces "github.com/zanderyk/code-generator/examples/crd/informers/externalversions/internalinterfaces"
+	extensionsv1 "github.com/zanderyk/code-generator/examples/crd/listers/extensions/v1"
 )
 
 // TestTypeInformer provides access to a shared informer and lister for

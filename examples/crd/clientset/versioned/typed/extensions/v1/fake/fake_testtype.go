@@ -27,9 +27,9 @@ import (
 	types "k8s.io/apimachinery/pkg/types"
 	gentype "k8s.io/client-go/gentype"
 	testing "k8s.io/client-go/testing"
-	v1 "k8s.io/code-generator/examples/crd/apis/extensions/v1"
-	extensionsv1 "k8s.io/code-generator/examples/crd/applyconfiguration/extensions/v1"
-	typedextensionsv1 "k8s.io/code-generator/examples/crd/clientset/versioned/typed/extensions/v1"
+	v1 "github.com/zanderyk/code-generator/examples/crd/apis/extensions/v1"
+	extensionsv1 "github.com/zanderyk/code-generator/examples/crd/applyconfiguration/extensions/v1"
+	typedextensionsv1 "github.com/zanderyk/code-generator/examples/crd/clientset/versioned/typed/extensions/v1"
 )
 
 // fakeTestTypes implements TestTypeInterface

@@ -27,10 +27,10 @@ import (
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	watch "k8s.io/apimachinery/pkg/watch"
 	cache "k8s.io/client-go/tools/cache"
-	singleapiv1 "k8s.io/code-generator/examples/single/api/v1"
-	versioned "k8s.io/code-generator/examples/single/clientset/versioned"
-	internalinterfaces "k8s.io/code-generator/examples/single/informers/externalversions/internalinterfaces"
-	apiv1 "k8s.io/code-generator/examples/single/listers/api/v1"
+	singleapiv1 "github.com/zanderyk/code-generator/examples/single/api/v1"
+	versioned "github.com/zanderyk/code-generator/examples/single/clientset/versioned"
+	internalinterfaces "github.com/zanderyk/code-generator/examples/single/informers/externalversions/internalinterfaces"
+	apiv1 "github.com/zanderyk/code-generator/examples/single/listers/api/v1"
 )
 
 // ClusterTestTypeInformer provides access to a shared informer and lister for

@@ -21,8 +21,8 @@ package install
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
-	"k8s.io/code-generator/examples/apiserver/apis/core"
-	"k8s.io/code-generator/examples/apiserver/apis/core/v1"
+	"github.com/zanderyk/code-generator/examples/apiserver/apis/core"
+	"github.com/zanderyk/code-generator/examples/apiserver/apis/core/v1"
 )
 
 // Install registers the API group and adds types to a scheme

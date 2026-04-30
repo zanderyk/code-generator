@@ -100,8 +100,8 @@ import (
 	"github.com/spf13/pflag"
 	"k8s.io/klog/v2"
 
-	generatorargs "k8s.io/code-generator/cmd/conversion-gen/args"
-	"k8s.io/code-generator/cmd/conversion-gen/generators"
+	generatorargs "github.com/zanderyk/code-generator/cmd/conversion-gen/args"
+	"github.com/zanderyk/code-generator/cmd/conversion-gen/generators"
 	"k8s.io/gengo/v2"
 	"k8s.io/gengo/v2/generator"
 )

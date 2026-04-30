@@ -20,7 +20,7 @@ import (
 	"errors"
 	"testing"
 
-	"k8s.io/code-generator/cmd/validation-gen/validators"
+	"github.com/zanderyk/code-generator/cmd/validation-gen/validators"
 	"k8s.io/gengo/v2/codetags"
 	"k8s.io/gengo/v2/generator"
 	"k8s.io/gengo/v2/types"

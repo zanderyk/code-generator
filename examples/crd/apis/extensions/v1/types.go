@@ -25,10 +25,10 @@ import metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 // +genclient:method=UpdateExtended,verb=update
 // +genclient:method=PatchExtended,verb=patch
 // +genclient:method=ApplyExtended,verb=apply
-// +genclient:method=GetSubresource,verb=get,subresource=testsubresource,result=k8s.io/code-generator/examples/crd/apis/extensions/v1.TestSubresource
-// +genclient:method=CreateSubresource,verb=create,subresource=testsubresource,input=k8s.io/code-generator/examples/crd/apis/extensions/v1.TestSubresource,result=k8s.io/code-generator/examples/crd/apis/extensions/v1.TestSubresource
-// +genclient:method=UpdateSubresource,verb=update,subresource=subresource,input=k8s.io/code-generator/examples/crd/apis/extensions/v1.TestSubresource,result=k8s.io/code-generator/examples/crd/apis/extensions/v1.TestSubresource
-// +genclient:method=ApplySubresource,verb=apply,subresource=subresource,input=k8s.io/code-generator/examples/crd/apis/extensions/v1.TestSubresource,result=k8s.io/code-generator/examples/crd/apis/extensions/v1.TestSubresource
+// +genclient:method=GetSubresource,verb=get,subresource=testsubresource,result=github.com/zanderyk/code-generator/examples/crd/apis/extensions/v1.TestSubresource
+// +genclient:method=CreateSubresource,verb=create,subresource=testsubresource,input=github.com/zanderyk/code-generator/examples/crd/apis/extensions/v1.TestSubresource,result=github.com/zanderyk/code-generator/examples/crd/apis/extensions/v1.TestSubresource
+// +genclient:method=UpdateSubresource,verb=update,subresource=subresource,input=github.com/zanderyk/code-generator/examples/crd/apis/extensions/v1.TestSubresource,result=github.com/zanderyk/code-generator/examples/crd/apis/extensions/v1.TestSubresource
+// +genclient:method=ApplySubresource,verb=apply,subresource=subresource,input=github.com/zanderyk/code-generator/examples/crd/apis/extensions/v1.TestSubresource,result=github.com/zanderyk/code-generator/examples/crd/apis/extensions/v1.TestSubresource
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // TestType is a top-level type. A client is created for it.

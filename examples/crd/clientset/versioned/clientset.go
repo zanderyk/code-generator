@@ -25,10 +25,10 @@ import (
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"
-	conflictingexamplev1 "k8s.io/code-generator/examples/crd/clientset/versioned/typed/conflicting/v1"
-	examplev1 "k8s.io/code-generator/examples/crd/clientset/versioned/typed/example/v1"
-	secondexamplev1 "k8s.io/code-generator/examples/crd/clientset/versioned/typed/example2/v1"
-	extensionsexamplev1 "k8s.io/code-generator/examples/crd/clientset/versioned/typed/extensions/v1"
+	conflictingexamplev1 "github.com/zanderyk/code-generator/examples/crd/clientset/versioned/typed/conflicting/v1"
+	examplev1 "github.com/zanderyk/code-generator/examples/crd/clientset/versioned/typed/example/v1"
+	secondexamplev1 "github.com/zanderyk/code-generator/examples/crd/clientset/versioned/typed/example2/v1"
+	extensionsexamplev1 "github.com/zanderyk/code-generator/examples/crd/clientset/versioned/typed/extensions/v1"
 )
 
 type Interface interface {

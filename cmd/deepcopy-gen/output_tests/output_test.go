@@ -23,13 +23,13 @@ import (
 
 	"sigs.k8s.io/randfill"
 
-	"k8s.io/code-generator/cmd/deepcopy-gen/output_tests/aliases"
-	"k8s.io/code-generator/cmd/deepcopy-gen/output_tests/builtins"
-	"k8s.io/code-generator/cmd/deepcopy-gen/output_tests/interfaces"
-	"k8s.io/code-generator/cmd/deepcopy-gen/output_tests/maps"
-	"k8s.io/code-generator/cmd/deepcopy-gen/output_tests/pointer"
-	"k8s.io/code-generator/cmd/deepcopy-gen/output_tests/slices"
-	"k8s.io/code-generator/cmd/deepcopy-gen/output_tests/structs"
+	"github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/aliases"
+	"github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/builtins"
+	"github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/interfaces"
+	"github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/maps"
+	"github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/pointer"
+	"github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/slices"
+	"github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/structs"
 	"k8s.io/utils/dump"
 )
 

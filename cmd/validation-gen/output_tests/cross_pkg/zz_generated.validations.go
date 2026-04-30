@@ -30,10 +30,10 @@ import (
 	safe "k8s.io/apimachinery/pkg/api/safe"
 	validate "k8s.io/apimachinery/pkg/api/validate"
 	field "k8s.io/apimachinery/pkg/util/validation/field"
-	other "k8s.io/code-generator/cmd/validation-gen/output_tests/_codegenignore/other"
-	primitives "k8s.io/code-generator/cmd/validation-gen/output_tests/primitives"
-	typedefs "k8s.io/code-generator/cmd/validation-gen/output_tests/typedefs"
-	testscheme "k8s.io/code-generator/cmd/validation-gen/testscheme"
+	other "github.com/zanderyk/code-generator/cmd/validation-gen/output_tests/_codegenignore/other"
+	primitives "github.com/zanderyk/code-generator/cmd/validation-gen/output_tests/primitives"
+	typedefs "github.com/zanderyk/code-generator/cmd/validation-gen/output_tests/typedefs"
+	testscheme "github.com/zanderyk/code-generator/cmd/validation-gen/testscheme"
 )
 
 func init() { localSchemeBuilder.Register(RegisterValidations) }

@@ -29,12 +29,12 @@ import (
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	wait "k8s.io/apimachinery/pkg/util/wait"
 	cache "k8s.io/client-go/tools/cache"
-	versioned "k8s.io/code-generator/examples/apiserver/clientset/versioned"
-	core "k8s.io/code-generator/examples/apiserver/informers/externalversions/core"
-	example "k8s.io/code-generator/examples/apiserver/informers/externalversions/example"
-	example2 "k8s.io/code-generator/examples/apiserver/informers/externalversions/example2"
-	example3io "k8s.io/code-generator/examples/apiserver/informers/externalversions/example3.io"
-	internalinterfaces "k8s.io/code-generator/examples/apiserver/informers/externalversions/internalinterfaces"
+	versioned "github.com/zanderyk/code-generator/examples/apiserver/clientset/versioned"
+	core "github.com/zanderyk/code-generator/examples/apiserver/informers/externalversions/core"
+	example "github.com/zanderyk/code-generator/examples/apiserver/informers/externalversions/example"
+	example2 "github.com/zanderyk/code-generator/examples/apiserver/informers/externalversions/example2"
+	example3io "github.com/zanderyk/code-generator/examples/apiserver/informers/externalversions/example3.io"
+	internalinterfaces "github.com/zanderyk/code-generator/examples/apiserver/informers/externalversions/internalinterfaces"
 )
 
 // SharedInformerOption defines the functional option type for SharedInformerFactory.

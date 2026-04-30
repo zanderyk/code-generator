@@ -17,7 +17,7 @@ limitations under the License.
 package v1alpha2
 
 import (
-	v1 "k8s.io/code-generator/examples/crd/apis/gateway-api/v1"
+	v1 "github.com/zanderyk/code-generator/examples/crd/apis/gateway-api/v1"
 )
 
 // Copied from Gateway API as a minimal reproducer for #131533

@@ -16,7 +16,7 @@ limitations under the License.
 
 package wholepkg
 
-import "k8s.io/code-generator/cmd/deepcopy-gen/output_tests/otherpkg"
+import "github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/otherpkg"
 
 // Trivial
 type StructEmpty struct{}
@@ -132,13 +132,13 @@ type StructEverything struct {
 }
 
 // An Object
-// +k8s:deepcopy-gen:interfaces=k8s.io/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.Object
+// +k8s:deepcopy-gen:interfaces=github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.Object
 type StructExplicitObject struct {
 	x int //nolint:unused
 }
 
 // An Object which is used a non-pointer
-// +k8s:deepcopy-gen:interfaces=k8s.io/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.Object
+// +k8s:deepcopy-gen:interfaces=github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.Object
 // +k8s:deepcopy-gen:nonpointer-interfaces=true
 type StructNonPointerExplicitObject struct {
 	x int //nolint:unused
@@ -148,18 +148,18 @@ type StructNonPointerExplicitObject struct {
 type StructTypeMeta struct {
 }
 
-// +k8s:deepcopy-gen:interfaces=k8s.io/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.Object
-// +k8s:deepcopy-gen:interfaces=k8s.io/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.List
+// +k8s:deepcopy-gen:interfaces=github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.Object
+// +k8s:deepcopy-gen:interfaces=github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.List
 type StructObjectAndList struct {
 }
 
-// +k8s:deepcopy-gen:interfaces=k8s.io/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.Object
-// +k8s:deepcopy-gen:interfaces=k8s.io/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.Object
+// +k8s:deepcopy-gen:interfaces=github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.Object
+// +k8s:deepcopy-gen:interfaces=github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.Object
 type StructObjectAndObject struct {
 }
 
-// +k8s:deepcopy-gen:interfaces=k8s.io/code-generator/cmd/deepcopy-gen/output_tests/wholepkg.Selector
-// +k8s:deepcopy-gen:interfaces=k8s.io/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.Object
+// +k8s:deepcopy-gen:interfaces=github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/wholepkg.Selector
+// +k8s:deepcopy-gen:interfaces=github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/otherpkg.Object
 type StructExplicitSelectorExplicitObject struct {
 	StructTypeMeta
 }

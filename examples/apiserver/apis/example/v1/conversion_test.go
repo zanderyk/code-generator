@@ -20,7 +20,7 @@ import (
 	"reflect"
 	"testing"
 
-	"k8s.io/code-generator/examples/apiserver/apis/example"
+	"github.com/zanderyk/code-generator/examples/apiserver/apis/example"
 )
 
 func TestConversion(t *testing.T) {

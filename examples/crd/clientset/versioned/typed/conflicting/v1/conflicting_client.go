@@ -22,8 +22,8 @@ import (
 	http "net/http"
 
 	rest "k8s.io/client-go/rest"
-	conflictingv1 "k8s.io/code-generator/examples/crd/apis/conflicting/v1"
-	scheme "k8s.io/code-generator/examples/crd/clientset/versioned/scheme"
+	conflictingv1 "github.com/zanderyk/code-generator/examples/crd/apis/conflicting/v1"
+	scheme "github.com/zanderyk/code-generator/examples/crd/clientset/versioned/scheme"
 )
 
 type ConflictingExampleV1Interface interface {

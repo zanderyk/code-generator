@@ -22,8 +22,8 @@ import (
 	"time"
 
 	"k8s.io/client-go/tools/cache"
-	singleapiv1 "k8s.io/code-generator/examples/single/api/v1"
-	"k8s.io/code-generator/examples/single/clientset/versioned"
+	singleapiv1 "github.com/zanderyk/code-generator/examples/single/api/v1"
+	"github.com/zanderyk/code-generator/examples/single/clientset/versioned"
 )
 
 // TestTransforms verified that transform calls are applied as expected.

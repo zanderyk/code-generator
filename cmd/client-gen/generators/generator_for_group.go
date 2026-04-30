@@ -20,12 +20,12 @@ import (
 	"io"
 	"path"
 
-	genutil "k8s.io/code-generator/pkg/util"
+	genutil "github.com/zanderyk/code-generator/pkg/util"
 	"k8s.io/gengo/v2/generator"
 	"k8s.io/gengo/v2/namer"
 	"k8s.io/gengo/v2/types"
 
-	"k8s.io/code-generator/cmd/client-gen/generators/util"
+	"github.com/zanderyk/code-generator/cmd/client-gen/generators/util"
 )
 
 // genGroup produces a file for a group client, e.g. ExtensionsClient for the extension group.

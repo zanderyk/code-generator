@@ -23,10 +23,10 @@ import (
 
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	cache "k8s.io/client-go/tools/cache"
-	v1 "k8s.io/code-generator/examples/crd/apis/conflicting/v1"
-	examplev1 "k8s.io/code-generator/examples/crd/apis/example/v1"
-	example2v1 "k8s.io/code-generator/examples/crd/apis/example2/v1"
-	extensionsv1 "k8s.io/code-generator/examples/crd/apis/extensions/v1"
+	v1 "github.com/zanderyk/code-generator/examples/crd/apis/conflicting/v1"
+	examplev1 "github.com/zanderyk/code-generator/examples/crd/apis/example/v1"
+	example2v1 "github.com/zanderyk/code-generator/examples/crd/apis/example2/v1"
+	extensionsv1 "github.com/zanderyk/code-generator/examples/crd/apis/extensions/v1"
 )
 
 // GenericInformer is type of SharedIndexInformer which will locate and delegate to other

@@ -20,8 +20,8 @@ package fake
 
 import (
 	gentype "k8s.io/client-go/gentype"
-	v1 "k8s.io/code-generator/examples/apiserver/apis/core/v1"
-	corev1 "k8s.io/code-generator/examples/apiserver/clientset/versioned/typed/core/v1"
+	v1 "github.com/zanderyk/code-generator/examples/apiserver/apis/core/v1"
+	corev1 "github.com/zanderyk/code-generator/examples/apiserver/clientset/versioned/typed/core/v1"
 )
 
 // fakeTestTypes implements TestTypeInterface

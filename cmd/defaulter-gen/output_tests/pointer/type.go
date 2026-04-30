@@ -17,7 +17,7 @@ limitations under the License.
 package pointer
 
 import (
-	"k8s.io/code-generator/cmd/defaulter-gen/output_tests/empty"
+	"github.com/zanderyk/code-generator/cmd/defaulter-gen/output_tests/empty"
 )
 
 type Tpointer struct {

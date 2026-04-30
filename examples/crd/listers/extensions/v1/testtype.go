@@ -22,7 +22,7 @@ import (
 	labels "k8s.io/apimachinery/pkg/labels"
 	listers "k8s.io/client-go/listers"
 	cache "k8s.io/client-go/tools/cache"
-	extensionsv1 "k8s.io/code-generator/examples/crd/apis/extensions/v1"
+	extensionsv1 "github.com/zanderyk/code-generator/examples/crd/apis/extensions/v1"
 )
 
 // TestTypeLister helps list TestTypes.

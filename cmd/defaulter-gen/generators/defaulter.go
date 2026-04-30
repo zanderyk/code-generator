@@ -27,8 +27,8 @@ import (
 	"strconv"
 	"strings"
 
-	"k8s.io/code-generator/cmd/defaulter-gen/args"
-	genutil "k8s.io/code-generator/pkg/util"
+	"github.com/zanderyk/code-generator/cmd/defaulter-gen/args"
+	genutil "github.com/zanderyk/code-generator/pkg/util"
 	"k8s.io/gengo/v2"
 	"k8s.io/gengo/v2/generator"
 	"k8s.io/gengo/v2/namer"

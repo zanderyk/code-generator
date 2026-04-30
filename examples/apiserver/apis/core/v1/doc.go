@@ -17,7 +17,7 @@ limitations under the License.
 // +k8s:openapi-gen=true
 // +k8s:deepcopy-gen=package
 // +k8s:defaulter-gen=TypeMeta
-// +k8s:conversion-gen=k8s.io/code-generator/examples/apiserver/apis/core
+// +k8s:conversion-gen=github.com/zanderyk/code-generator/examples/apiserver/apis/core
 // +groupName=
 // +k8s:openapi-model-package=io.k8s.code-generator.examples.apiserver.apis.core.v1
 

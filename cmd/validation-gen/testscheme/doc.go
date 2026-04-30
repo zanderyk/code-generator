@@ -21,10 +21,10 @@ limitations under the License.
 // The go package should have validation-gen and this test scheme enabled and must declare a
 // 'localSchemeBuilder' using the 'testscheme.New()' function. For example:
 //
-//	// +k8s:validation-gen-scheme-registry=k8s.io/code-generator/cmd/validation-gen/testscheme.Scheme
+//	// +k8s:validation-gen-scheme-registry=github.com/zanderyk/code-generator/cmd/validation-gen/testscheme.Scheme
 //	// +k8s:validation-gen
 //	package example
-//	import "k8s.io/code-generator/cmd/validation-gen/testscheme"
+//	import "github.com/zanderyk/code-generator/cmd/validation-gen/testscheme"
 //	var localSchemeBuilder = testscheme.New()
 //
 // This is sufficient for validation-gen to generate a `zz_generated.validations.go` for the types

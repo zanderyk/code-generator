@@ -18,5 +18,5 @@ limitations under the License.
 
 // Ignore this file to prevent zz_generated for this package
 
-//go:generate go run k8s.io/code-generator/cmd/validation-gen --output-file zz_generated.validations.go --go-header-file=../../../examples/hack/boilerplate.go.txt ./...
+//go:generate go run github.com/zanderyk/code-generator/cmd/validation-gen --output-file zz_generated.validations.go --go-header-file=../../../examples/hack/boilerplate.go.txt ./...
 package outputtests

@@ -22,8 +22,8 @@ import (
 	http "net/http"
 
 	rest "k8s.io/client-go/rest"
-	apiv1 "k8s.io/code-generator/examples/single/api/v1"
-	scheme "k8s.io/code-generator/examples/single/clientset/versioned/scheme"
+	apiv1 "github.com/zanderyk/code-generator/examples/single/api/v1"
+	scheme "github.com/zanderyk/code-generator/examples/single/clientset/versioned/scheme"
 )
 
 type ExampleV1Interface interface {

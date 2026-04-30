@@ -24,7 +24,7 @@ import (
 	"strings"
 
 	"k8s.io/apimachinery/pkg/util/sets"
-	"k8s.io/code-generator/cmd/validation-gen/validators"
+	"github.com/zanderyk/code-generator/cmd/validation-gen/validators"
 	"k8s.io/gengo/v2"
 	"k8s.io/gengo/v2/codetags"
 	"k8s.io/gengo/v2/generator"

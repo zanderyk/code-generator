@@ -24,7 +24,7 @@ import (
 
 	openapiv2 "github.com/google/gnostic-models/openapiv2"
 
-	clientgentypes "k8s.io/code-generator/cmd/client-gen/types"
+	clientgentypes "github.com/zanderyk/code-generator/cmd/client-gen/types"
 	"k8s.io/gengo/v2/types"
 	"k8s.io/kube-openapi/pkg/util"
 	utilproto "k8s.io/kube-openapi/pkg/util/proto"

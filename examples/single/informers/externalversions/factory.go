@@ -29,9 +29,9 @@ import (
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	wait "k8s.io/apimachinery/pkg/util/wait"
 	cache "k8s.io/client-go/tools/cache"
-	versioned "k8s.io/code-generator/examples/single/clientset/versioned"
-	api "k8s.io/code-generator/examples/single/informers/externalversions/api"
-	internalinterfaces "k8s.io/code-generator/examples/single/informers/externalversions/internalinterfaces"
+	versioned "github.com/zanderyk/code-generator/examples/single/clientset/versioned"
+	api "github.com/zanderyk/code-generator/examples/single/informers/externalversions/api"
+	internalinterfaces "github.com/zanderyk/code-generator/examples/single/informers/externalversions/internalinterfaces"
 )
 
 // SharedInformerOption defines the functional option type for SharedInformerFactory.

@@ -23,7 +23,7 @@ limitations under the License.
 //nolint:unused
 package nogeneration
 
-import "k8s.io/code-generator/cmd/validation-gen/testscheme"
+import "github.com/zanderyk/code-generator/cmd/validation-gen/testscheme"
 
 var localSchemeBuilder = testscheme.New()
 

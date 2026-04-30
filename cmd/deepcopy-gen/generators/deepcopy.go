@@ -23,8 +23,8 @@ import (
 	"sort"
 	"strings"
 
-	"k8s.io/code-generator/cmd/deepcopy-gen/args"
-	genutil "k8s.io/code-generator/pkg/util"
+	"github.com/zanderyk/code-generator/cmd/deepcopy-gen/args"
+	genutil "github.com/zanderyk/code-generator/pkg/util"
 	"k8s.io/gengo/v2"
 	"k8s.io/gengo/v2/generator"
 	"k8s.io/gengo/v2/namer"

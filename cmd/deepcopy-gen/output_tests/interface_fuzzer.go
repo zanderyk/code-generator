@@ -19,8 +19,8 @@ package outputtests
 import (
 	"sigs.k8s.io/randfill"
 
-	"k8s.io/code-generator/cmd/deepcopy-gen/output_tests/aliases"
-	"k8s.io/code-generator/cmd/deepcopy-gen/output_tests/interfaces"
+	"github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/aliases"
+	"github.com/zanderyk/code-generator/cmd/deepcopy-gen/output_tests/interfaces"
 )
 
 // interfaceFuzzers contains fuzzer that set all interface to nil because our

@@ -22,7 +22,7 @@ limitations under the License.
 package notypesmatch
 
 import (
-	testscheme "k8s.io/code-generator/cmd/validation-gen/testscheme"
+	testscheme "github.com/zanderyk/code-generator/cmd/validation-gen/testscheme"
 )
 
 func init() { localSchemeBuilder.Register(RegisterValidations) }

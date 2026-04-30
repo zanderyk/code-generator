@@ -25,7 +25,7 @@ import (
 	"sort"
 	"strings"
 
-	"k8s.io/code-generator/cmd/conversion-gen/args"
+	"github.com/zanderyk/code-generator/cmd/conversion-gen/args"
 	"k8s.io/gengo/v2"
 	"k8s.io/gengo/v2/generator"
 	"k8s.io/gengo/v2/namer"
