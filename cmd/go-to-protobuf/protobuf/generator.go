@@ -456,7 +456,7 @@ func isFundamentalProtoType(t *types.Type) (*types.Type, bool) {
 		}
 	case types.Builtin:
 		switch t.Name.Name {
-		case "string", "uint32", "int32", "uint64", "int64", "bool":
+		case "string", "int8", "uint8", "int16", "uint16", "uint32", "int32", "uint64", "int64", "bool":
 			return &types.Type{Name: types.Name{Name: t.Name.Name}, Kind: types.Protobuf}, true
 		case "int":
 			return &types.Type{Name: types.Name{Name: "int64"}, Kind: types.Protobuf}, true
