@@ -638,6 +638,14 @@ func membersToFields(locator ProtobufLocator, t *types.Type, localPackage types.
 		if _, ok := omitFieldTypes[types.Name{Name: m.Type.Name.Name, Package: m.Type.Name.Package}]; ok {
 			continue
 		}
+
+		// crd2proto: skip non-serializable Go primitives. These appear in
+		// helper structs that share a package with CRD types but aren't
+		// themselves API types.
+		if m.Type.Kind == types.Func || m.Type.Kind == types.Chan {
+			continue
+		}
+
 		tags := reflect.StructTag(m.Tags)
 		field := protoField{
 			LocalPackage: localPackage,
