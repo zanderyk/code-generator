@@ -104,6 +104,14 @@ func (p *protobufPackage) filterFunc(c *generator.Context, t *types.Type) bool {
 		if t.Name.Name == "struct{}" {
 			return false
 		}
+		// don't generate protobuf for struct explicitly
+		// called out as skip openapi-gen (+k8s:openapi-gen=false)
+		for _, line := range t.CommentLines {
+			s := strings.TrimSpace(line)
+			if s == "+k8s:openapi-gen=false" || s == "+kubebuilder:object:generate=false" {
+				return false
+			}
+		}
 	case types.Builtin:
 		return false
 	case types.Alias:
