@@ -85,8 +85,8 @@ func (g *Generator) BindFlags(flag *flag.FlagSet) {
 	flag.StringVar(&g.DropEmbeddedFields, "drop-embedded-fields", g.DropEmbeddedFields, "Comma-delimited list of embedded Go types to omit from generated protobufs")
 }
 
-// This roughly models gengo/v2.Execute.
-func Run(g *Generator) {
+// RunLogic is a wrapper for the core original `Run` logic. Returns error.
+func RunLogic(g *Generator) error {
 	// Roughly models gengo/v2.newBuilder.
 
 	p := parser.NewWithOptions(parser.Options{BuildTags: []string{"proto"}})
@@ -99,11 +99,11 @@ func Run(g *Generator) {
 		allInputs = append(allInputs, strings.Split(g.Packages, ",")...)
 	}
 	if len(allInputs) == 0 {
-		log.Fatalf("Both apimachinery-packages and packages are empty. At least one package must be specified.")
+		return fmt.Errorf("Both apimachinery-packages and packages are empty. At least one package must be specified.")
 	}
 
 	if g.DropGogoGo && g.SkipGeneratedRewrite {
-		log.Fatalf("--drop-gogo-go=true and --skip-generated-rewrite=true are mutually exclusive")
+		return fmt.Errorf("--drop-gogo-go=true and --skip-generated-rewrite=true are mutually exclusive")
 	}
 
 	// Build up a list of packages to load from all the inputs.  Track the
@@ -141,7 +141,7 @@ func Run(g *Generator) {
 
 	// Load all the packages at once.
 	if err := p.LoadPackages(packages...); err != nil {
-		log.Fatalf("Unable to load packages: %v", err)
+		return fmt.Errorf("Unable to load packages: %v")
 	}
 
 	c, err := generator.NewContext(
@@ -152,7 +152,7 @@ func Run(g *Generator) {
 		"public",
 	)
 	if err != nil {
-		log.Fatalf("Failed making a context: %v", err)
+		return fmt.Errorf("Failed making a context: %v", err)
 	}
 
 	c.FileTypes["protoidl"] = NewProtoFile()
@@ -162,7 +162,7 @@ func Run(g *Generator) {
 
 	boilerplate, err := gengo.GoBoilerplate(g.GoHeaderFile, "", "")
 	if err != nil {
-		log.Fatalf("Failed loading boilerplate (consider using the go-header-file flag): %v", err)
+		return fmt.Errorf("Failed loading boilerplate (consider using the go-header-file flag): %v", err)
 	}
 
 	omitTypes := map[types.Name]struct{}{}
@@ -174,7 +174,7 @@ func Run(g *Generator) {
 			name.Name = t
 		}
 		if len(name.Name) == 0 {
-			log.Fatalf("--drop-embedded-types requires names in the form of [GOPACKAGE.]TYPENAME: %v", t)
+			return fmt.Errorf("--drop-embedded-types requires names in the form of [GOPACKAGE.]TYPENAME: %v", t)
 		}
 		omitTypes[name] = struct{}{}
 	}
@@ -186,7 +186,7 @@ func Run(g *Generator) {
 	for _, input := range c.Inputs {
 		mod, found := inputModifiers[input]
 		if !found {
-			log.Fatalf("BUG: can't find input modifiers for %q", input)
+			return fmt.Errorf("BUG: can't find input modifiers for %q", input)
 		}
 		pkg := c.Universe[input]
 		protopkg := newProtobufPackage(pkg.Path, pkg.Dir, mod.name, mod.allTypes, omitTypes)
@@ -204,19 +204,19 @@ func Run(g *Generator) {
 
 	for _, p := range outputPackages {
 		if err := p.(*protobufPackage).Clean(); err != nil {
-			log.Fatalf("Unable to clean package %s: %v", p.Name(), err)
+			return fmt.Errorf("Unable to clean package %s: %v", p.Name(), err)
 		}
 	}
 
 	if g.Clean {
-		return
+		return nil
 	}
 
 	// order package by imports, importees first
 	deps := deps(c, protobufNames.packages)
 	order, err := importOrder(deps)
 	if err != nil {
-		log.Fatalf("Failed to order packages by imports: %v", err)
+		return fmt.Errorf("Failed to order packages by imports: %v", err)
 	}
 	topologicalPos := map[string]int{}
 	for i, p := range order {
@@ -234,7 +234,7 @@ func Run(g *Generator) {
 	}
 
 	if err := protobufNames.AssignTypesToPackages(c); err != nil {
-		log.Fatalf("Failed to identify Common types: %v", err)
+		return fmt.Errorf("Failed to identify Common types: %v", err)
 	}
 
 	if err := c.ExecuteTargets(localOutputPackages); err != nil {
@@ -242,11 +242,11 @@ func Run(g *Generator) {
 	}
 
 	if g.OnlyIDL {
-		return
+		return nil
 	}
 
 	if _, err := exec.LookPath("protoc"); err != nil {
-		log.Fatalf("Unable to find 'protoc': %v", err)
+		return fmt.Errorf("Unable to find 'protoc': %v", err)
 	}
 
 	searchArgs := []string{"-I", ".", "-I", g.OutputDir}
@@ -296,7 +296,7 @@ func Run(g *Generator) {
 		// alter the generated protobuf file to remove the generated types (but leave the serializers) and rewrite the
 		// package statement to match the desired package name
 		if err := RewriteGeneratedGogoProtobufFile(outputPath, p.ExtractGeneratedType, p.OptionalTypeName, buf.Bytes(), g.DropGogoGo); err != nil {
-			log.Fatalf("Unable to rewrite generated %s: %v", outputPath, err)
+			return fmt.Errorf("Unable to rewrite generated %s: %v", outputPath, err)
 		}
 
 		outputPaths := []string{outputPath}
@@ -309,7 +309,7 @@ func Run(g *Generator) {
 		}
 		if err != nil {
 			log.Println(strings.Join(cmd.Args, " "))
-			log.Fatalf("Unable to rewrite imports for %s: %v", p.Name(), err)
+			return fmt.Errorf("Unable to rewrite imports for %s: %v", p.Name(), err)
 		}
 
 		// format and simplify the generated file
@@ -320,12 +320,12 @@ func Run(g *Generator) {
 		}
 		if err != nil {
 			log.Println(strings.Join(cmd.Args, " "))
-			log.Fatalf("Unable to apply gofmt for %s: %v", p.Name(), err)
+			return fmt.Errorf("Unable to apply gofmt for %s: %v", p.Name(), err)
 		}
 	}
 
 	if g.SkipGeneratedRewrite {
-		return
+		return nil
 	}
 
 	if !g.KeepGogoproto {
@@ -335,7 +335,7 @@ func Run(g *Generator) {
 			p.OmitGogo = true
 		}
 		if err := c.ExecuteTargets(localOutputPackages); err != nil {
-			log.Fatalf("Failed executing local generator: %v", err)
+			return fmt.Errorf("Failed executing local generator: %v", err)
 		}
 	}
 
@@ -349,7 +349,7 @@ func Run(g *Generator) {
 		pattern := filepath.Join(g.OutputDir, p.Path(), "*.go")
 		files, err := filepath.Glob(pattern)
 		if err != nil {
-			log.Fatalf("Can't glob pattern %q: %v", pattern, err)
+			return fmt.Errorf("Can't glob pattern %q: %v", pattern, err)
 		}
 
 		for _, s := range files {
@@ -357,9 +357,17 @@ func Run(g *Generator) {
 				continue
 			}
 			if err := RewriteTypesWithProtobufStructTags(s, p.StructTags); err != nil {
-				log.Fatalf("Unable to rewrite with struct tags %s: %v", s, err)
+				return fmt.Errorf("Unable to rewrite with struct tags %s: %v", s, err)
 			}
 		}
+	}
+	return nil
+}
+
+// This roughly models gengo/v2.Execute.
+func Run(g *Generator) {
+	if err := RunLogic(g); err != nil {
+		log.Fatal(err)
 	}
 }
 
