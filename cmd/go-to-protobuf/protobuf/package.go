@@ -72,6 +72,13 @@ type protobufPackage struct {
 	// to remove synthetic protobuf fields.
 	OptionalTypeNames map[string]struct{}
 
+	// DisambigNames maps a full Go type Name (package + short name) to the
+	// proto message name to emit for it, for types inlined into this package
+	// whose short name would otherwise collide with another inlined type from
+	// a different source package. Keyed by the original Go Name; absent for
+	// types that keep their bare short name.
+	DisambigNames map[types.Name]string
+
 	// A list of struct tags to generate onto named struct fields
 	StructTags map[string]map[string]string
 

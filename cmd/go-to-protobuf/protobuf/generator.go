@@ -202,6 +202,9 @@ type ProtobufLocator interface {
 	ProtoTypeFor(t *types.Type) (*types.Type, error)
 	GoTypeForName(name types.Name) *types.Type
 	CastTypeName(name types.Name) string
+	// ProtoNameFor returns the proto message name to emit for a Go type name,
+	// accounting for collision disambiguation. Matches GoNameToProtoName output.
+	ProtoNameFor(name types.Name) string
 }
 
 type protobufLocator struct {
@@ -219,6 +222,12 @@ func (p protobufLocator) CastTypeName(name types.Name) string {
 		return name.Name
 	}
 	return name.String()
+}
+
+// ProtoNameFor returns the proto message name for a Go type name, applying the
+// same collision disambiguation used at reference sites.
+func (p protobufLocator) ProtoNameFor(name types.Name) string {
+	return p.namer.GoNameToProtoName(name).Name
 }
 
 func (p protobufLocator) GoTypeForName(name types.Name) *types.Type {
@@ -372,8 +381,7 @@ func (b bodyGen) doStruct(sw *generator.SnippetWriter) error {
 
 	out := sw.Out()
 	genComment(out, b.t.CommentLines, "")
-	sw.Do(`message $.Name.Name$ {
-`, b.t)
+	fmt.Fprintf(out, "message %s {\n", b.locator.ProtoNameFor(b.t.Name))
 
 	if len(options) > 0 {
 		sort.Strings(options)

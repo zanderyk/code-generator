@@ -74,7 +74,7 @@ func (n *protobufNamer) Add(p *protobufPackage) {
 func (n *protobufNamer) GoNameToProtoName(name types.Name) types.Name {
 	if p, ok := n.packagesByPath[name.Package]; ok {
 		return types.Name{
-			Name:    name.Name,
+			Name:    protoShortName(p, name),
 			Package: p.Name(),
 			Path:    p.ImportPath(),
 		}
@@ -82,7 +82,7 @@ func (n *protobufNamer) GoNameToProtoName(name types.Name) types.Name {
 	for _, p := range n.packages {
 		if _, ok := p.FilterTypes[name]; ok {
 			return types.Name{
-				Name:    name.Name,
+				Name:    protoShortName(p, name),
 				Package: p.Name(),
 				Path:    p.ImportPath(),
 			}
@@ -91,10 +91,31 @@ func (n *protobufNamer) GoNameToProtoName(name types.Name) types.Name {
 	return types.Name{Name: name.Name}
 }
 
+// protoShortName returns the proto message name to use for a Go type assigned
+// to package p: the disambiguated name if this type collided with another
+// inlined type, otherwise its bare short name.
+func protoShortName(p *protobufPackage, name types.Name) string {
+	if dn, ok := p.DisambigNames[name]; ok {
+		return dn
+	}
+	return name.Name
+}
+
 func protoSafePackage(name string) string {
 	pkg := strings.ReplaceAll(name, "/", ".")
 	return strings.ReplaceAll(pkg, "-", "_")
 }
+
+// protoSafeIdent turns a Go import path into a token
+// usable inside a proto message identifier: dots are
+// package separators in proto so they, along with
+// slashes and dashes, become underscores. e.g.
+// "kubevirt.io/api/core/v1" -> "kubevirt_io_api_core_v1".
+func protoSafeIdent(importPath string) string {
+	return identReplacer.Replace(importPath)
+}
+
+var identReplacer = strings.NewReplacer("/", "_", ".", "_", "-", "_")
 
 type typeNameSet map[types.Name]*protobufPackage
 
@@ -201,6 +222,34 @@ func (n *protobufNamer) AssignTypesToPackages(c *generator.Context) error {
 				}
 			}
 		}
+		assignDisambiguatedNames(p)
 	}
 	return nil
+}
+
+// assignDisambiguatedNames resolves short-name collisions among the types
+// assigned to a single proto package. Two Go types from different source
+// packages can be inlined into the same proto package (when neither is
+// generated separately); emitted with their bare short name they'd produce
+// two `message X` blocks, which protoc rejects. For each colliding short
+// name we keep the bare name for a type actually defined in this package (if
+// any) and prefix the rest with their full, sanitized import path, so every
+// emitted message name is unique and self-describing.
+func assignDisambiguatedNames(p *protobufPackage) {
+	p.DisambigNames = map[types.Name]string{}
+	byShort := map[string][]types.Name{}
+	for k := range p.FilterTypes {
+		byShort[k.Name] = append(byShort[k.Name], k)
+	}
+	for _, group := range byShort {
+		if len(group) < 2 {
+			continue // unique short name, keep it bare
+		}
+		for _, k := range group {
+			if k.Package == p.Path() {
+				continue // the package's own type keeps the bare name
+			}
+			p.DisambigNames[k] = protoSafeIdent(k.Package) + "__" + k.Name
+		}
+	}
 }
