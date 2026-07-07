@@ -238,7 +238,7 @@ func RunLogic(g *Generator) error {
 	}
 
 	if err := c.ExecuteTargets(localOutputPackages); err != nil {
-		log.Fatalf("Failed executing local generator: %v", err)
+		return fmt.Errorf("Failed executing local generator: %v", err)
 	}
 
 	if g.OnlyIDL {
