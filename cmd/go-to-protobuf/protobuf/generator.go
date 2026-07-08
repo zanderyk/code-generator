@@ -129,7 +129,7 @@ func isProtoable(seen map[*types.Type]bool, t *types.Type) bool {
 				return true
 			}
 		}
-		return false
+		return isOpaqueInterfaceStruct(t)
 	case types.Func, types.Chan:
 		return false
 	case types.DeclarationOf, types.Unknown, types.Unsupported:
@@ -140,6 +140,32 @@ func isProtoable(seen map[*types.Type]bool, t *types.Type) bool {
 		log.Printf("WARNING: type %q is not portable: %s", t.Kind, t.Name)
 		return false
 	}
+}
+
+func isInterfaceBacked(t *types.Type) bool {
+	for t != nil {
+		switch t.Kind {
+		case types.Interface:
+			return true
+		case types.Alias:
+			t = t.Underlying
+		default:
+			return false
+		}
+	}
+	return false
+}
+
+func isOpaqueInterfaceStruct(t *types.Type) bool {
+	if t.Kind != types.Struct || len(t.Members) == 0 {
+		return false
+	}
+	for _, m := range t.Members {
+		if isInterfaceBacked(m.Type) {
+			return true
+		}
+	}
+	return false
 }
 
 // isOptionalAlias should return true if the specified type has an underlying type
@@ -377,6 +403,16 @@ func (b bodyGen) doStruct(sw *generator.SnippetWriter) error {
 			return fmt.Errorf("type %v cannot be converted to protobuf: %v", b.t, err)
 		}
 		fields = memberFields
+	}
+
+	if len(fields) == 0 && isOpaqueInterfaceStruct(b.t) {
+		fields = []protoField{{
+			LocalPackage: b.localPackage,
+			Tag:          1,
+			Name:         "raw",
+			Type:         &types.Type{Name: types.Name{Name: "bytes"}, Kind: types.Protobuf},
+			Extras:       map[string]string{},
+		}}
 	}
 
 	out := sw.Out()
@@ -647,10 +683,7 @@ func membersToFields(locator ProtobufLocator, t *types.Type, localPackage types.
 			continue
 		}
 
-		// crd2proto: skip non-serializable Go primitives. These appear in
-		// helper structs that share a package with CRD types but aren't
-		// themselves API types.
-		if m.Type.Kind == types.Func || m.Type.Kind == types.Chan {
+		if m.Type.Kind == types.Func || m.Type.Kind == types.Chan || isInterfaceBacked(m.Type) {
 			continue
 		}
 
